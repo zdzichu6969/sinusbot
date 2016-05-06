@@ -7,9 +7,7 @@ TeamSpeak 3 SinusBot Homepage: https://frie.se/ts3bot/
 Edited by zdzichu6969
 
 
-# Install
-
-# Debian 7/8 Install :
+# Install on Debian 7/8 Install :
  
 apt-get update  
 apt-get install apt-transport-https ca-certificates

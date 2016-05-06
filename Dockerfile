@@ -10,8 +10,8 @@ ENV SINUS_USER="sinusbot" \
     YTDL_VERSION="latest" \
     TS3_VERSION="3.0.19.1" \
     TS3_OFFSET="25000"
-ADD entrypoint.sh /entrypoint.sh
-RUN chmod 755 /entrypoint.sh && \
+ADD deploy.sh /deploy.sh
+RUN chmod 755 /deploy.sh && \
     apt-get -q update && \
     apt-get -q install -y \
     locales \

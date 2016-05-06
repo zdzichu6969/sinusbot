@@ -51,4 +51,4 @@ RUN chmod 755 /entrypoint.sh && \
 
 VOLUME ["$SINUS_DATA"]
 EXPOSE 8087
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/deploy.sh"]

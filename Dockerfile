@@ -1,5 +1,4 @@
 FROM debian:jessie
-MAINTAINER Alexander Trost <galexrt@googlemail.com>
 
 ENV SINUS_USER="sinusbot" \
     SINUS_GROUP="sinusbot" \
@@ -9,7 +8,7 @@ ENV SINUS_USER="sinusbot" \
     TS3_DIR="$SINUS_DIR/TeamSpeak3-Client-linux_amd64" \
     SINUS_VERSION="0.9.8" \
     YTDL_VERSION="latest" \
-    TS3_VERSION="3.0.18.2" \
+    TS3_VERSION="3.0.19.1" \
     TS3_OFFSET="25000"
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh && \
@@ -44,6 +43,7 @@ RUN chmod 755 /entrypoint.sh && \
     mv -f "$SINUS_DIR/config.ini.dist" "$SINUS_DIR/config.ini" && \
     sed -i "s|TS3Path = .*|TS3Path = \"$TS3_DIR/ts3client_linux_amd64\"|g" "$SINUS_DIR/config.ini" && \
     echo YoutubeDLPath = \"$YTDL_BIN\" >> "$SINUS_DIR/config.ini" && \
+    echo "UploadLimit = 134217728" >> "$SINUS_DIR/config.ini" && \
     cp -f "$SINUS_DIR/plugin/libsoundbot_plugin.so" "$TS3_DIR/plugins/" && \
     chown -fR "$SINUS_USER":"$SINUS_GROUP" "$SINUS_DIR" "$TS3_DIR" && \
     apt-get -qq clean && \
